@@ -7,6 +7,36 @@
 <meta name="description" content="Thiệp mời cưới Quang Bình & Thu Huyền">
 
 <!-- =========================================================
+     ẢNH & TIÊU ĐỀ HIỂN THỊ KHI CHIA SẺ LINK (Zalo, Facebook, Messenger...)
+     - Đây gọi là thẻ "Open Graph". Khi bạn dán link web vào khung chat,
+       app sẽ đọc các thẻ dưới đây để tự hiển thị 1 ảnh + tiêu đề + mô tả kèm theo.
+     - ✏️ QUAN TRỌNG: og:image PHẢI là link ảnh dạng đầy đủ (bắt đầu bằng https://),
+       không dùng được đường dẫn nội bộ như "images/anh.jpg".
+       => Cách làm: tải ảnh lên nơi lưu trữ công khai rồi lấy link ảnh, ví dụ:
+          + Upload cùng chỗ bạn host web này (Netlify, GitHub Pages, hosting riêng...)
+          + Hoặc dùng dịch vụ ảnh công khai (Imgur, Cloudinary...)
+       Sau đó dán link ảnh đó thay cho dòng "URL_ANH_CUA_BAN.jpg" bên dưới.
+     - Sau khi đổi ảnh, nếu Facebook/Zalo vẫn hiện ảnh cũ do đã lưu cache,
+       dùng công cụ "Sharing Debugger" của Facebook để làm mới cache.
+     ========================================================= -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quang Bình & Thu Huyền - Thiệp mời cưới">
+<meta property="og:description" content="Trân trọng kính mời bạn đến chung vui cùng Quang Bình & Thu Huyền. Lễ Thành Hôn: 16/11/2026 tại Thôn 6, Hoằng Thanh, Thanh Hóa.">
+<meta property="og:image" content="URL_ANH_CUA_BAN.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://binh-huyen.github.io/wedding/">
+<meta property="og:locale" content="vi_VN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quang Bình & Thu Huyền - Thiệp mời cưới">
+<meta name="twitter:description" content="Trân trọng kính mời bạn đến chung vui cùng Quang Bình & Thu Huyền. Lễ Thành Hôn: 16/11/2026 tại Thôn 6, Hoằng Thanh, Thanh Hóa.">
+<meta name="twitter:image" content="URL_ANH_CUA_BAN.jpg">
+
+<!-- ✏️ CHỈNH Ở ĐÂY: icon nhỏ hiển thị trên tab trình duyệt (favicon), không bắt buộc -->
+<!-- <link rel="icon" href="URL_ANH_ICON_NHO.png"> -->
+
+<!-- =========================================================
      GHI CHÚ CHO NGƯỜI DÙNG
      - Toàn bộ nội dung có thể chỉnh sửa ngay trong file này.
      - Tìm các dòng có đánh dấu  ✏️ CHỈNH Ở ĐÂY  để thay nhanh.
