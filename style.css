@@ -592,6 +592,101 @@ section { padding-block: var(--space-xl); position: relative; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-text-light);
+
+}
+.guestbook-quick-input {
+  position: fixed;
+  left: 50%;
+  bottom: 0.9rem;
+  transform: translateX(-50%);
+  width: min(360px, calc(100vw - 2rem));
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: rgba(170, 170, 170, 0.65);
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem 0 1rem;
+  z-index: 560;
+  box-shadow: 0 8px 20px rgba(45, 45, 45, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.guestbook-quick-input__text {
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.guestbook-quick-input__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.guestbook-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-fast) var(--ease-soft), visibility var(--dur-fast) var(--ease-soft);
+}
+
+.guestbook-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.guestbook-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(36, 42, 33, 0.4);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.guestbook-modal__panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%);
+  width: min(540px, calc(100vw - 2rem));
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.guestbook-modal__close {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.4rem;
+  font-size: 1.8rem;
+  color: var(--color-text-light);
+}
+
+.guestbook-modal__eyebrow {
+  text-align: center;
+  color: var(--color-sage-dark);
+  letter-spacing: 0.09em;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.guestbook-modal .guestbook__form {
+  margin: 0;
+  max-width: none;
+  box-shadow: none;
+  padding: 0;
+  background: transparent;
 }
 
 .countdown__sep {
@@ -1294,6 +1389,64 @@ section { padding-block: var(--space-xl); position: relative; }
   color: var(--color-text-lighter);
 }
 
+.guestbook__floating {
+  position: fixed;
+  left: 0.9rem;
+  top: 22vh;
+  width: min(320px, calc(100vw - 1.8rem));
+  height: 350px;
+  z-index: 450;
+  display: block;
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0.78;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+.guestbook__floating-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  will-change: transform;
+}
+
+.guestbook__floating .guestbook__entry {
+  background: rgba(98, 189, 133, 0.5);
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  box-shadow: none;
+  animation: none;
+}
+
+.guestbook__floating .guestbook__entry-name {
+  font-size: 0.88rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+.guestbook__floating .guestbook__entry-msg {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+.guestbook__floating .guestbook__entry-date {
+  display: none;
+}
+
+.guestbook__floating .guestbook__empty {
+  padding-top: 125px;
+  color: var(--color-sage-darker);
+  font-size: 0.85rem;
+}
+
 .guestbook__empty {
   grid-column: 1 / -1;
   text-align: center;
@@ -1303,6 +1456,23 @@ section { padding-block: var(--space-xl); position: relative; }
 
 @media (max-width: 640px) {
   .guestbook__list { grid-template-columns: 1fr; }
+  .guestbook-quick-input {
+    bottom: 0.75rem;
+    height: 42px;
+    width: min(94vw, 240px);
+  }
+  .guestbook-modal__panel {
+    width: min(94vw, 540px);
+    padding: 1rem;
+  }
+  .guestbook__floating {
+    top: auto;
+    bottom: 1rem;
+    left: 0.75rem;
+    width: min(92vw, 250px);
+    height: 250px;
+    opacity: 0.72;
+  }
   .guestbook__form, .rsvp__form { padding: var(--space-md); }
 }
 

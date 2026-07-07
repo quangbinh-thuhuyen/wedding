@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,18 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Favicon (leaf emoji as data uri, dễ thay bằng favicon.ico riêng) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
 </head>
+
 <body>
 
   <!-- ============ LOADING SCREEN ============ -->
@@ -67,7 +72,8 @@
         <span class="hero__name">Quang Bình</span>
         <span class="hero__amp" aria-hidden="true">
           <svg viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 28.2C9.4 23.6 1 17.1 1 9.4 1 4.5 4.7 1 9.4 1c2.9 0 5.4 1.4 6.6 3.6C17.2 2.4 19.7 1 22.6 1 27.3 1 31 4.5 31 9.4c0 7.7-8.4 14.2-15 18.8Z"/>
+            <path
+              d="M16 28.2C9.4 23.6 1 17.1 1 9.4 1 4.5 4.7 1 9.4 1c2.9 0 5.4 1.4 6.6 3.6C17.2 2.4 19.7 1 22.6 1 27.3 1 31 4.5 31 9.4c0 7.7-8.4 14.2-15 18.8Z" />
           </svg>
         </span>
         <span class="hero__name">Thu Huyền</span>
@@ -195,7 +201,8 @@
         <h2 class="section-title reveal">Mừng Cưới</h2>
         <p class="gift__note reveal">Sự hiện diện của bạn là niềm vinh hạnh với vợ chồng chúng tôi.</p>
 
-        <button type="button" class="gift__trigger reveal" id="giftTrigger" aria-haspopup="dialog" aria-controls="giftModal">
+        <button type="button" class="gift__trigger reveal" id="giftTrigger" aria-haspopup="dialog"
+          aria-controls="giftModal">
           <span class="gift__trigger-icon" aria-hidden="true">🎁</span>
           <span class="gift__trigger-text">Xem thông tin mừng cưới</span>
         </button>
@@ -203,7 +210,8 @@
     </section>
 
     <!-- Popup QR mừng cưới -->
-    <div class="gift-modal" id="giftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Thông tin mừng cưới">
+    <div class="gift-modal" id="giftModal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-label="Thông tin mừng cưới">
       <div class="gift-modal__overlay" id="giftModalOverlay"></div>
       <div class="gift-modal__panel">
         <button class="gift-modal__close" id="giftModalClose" aria-label="Đóng">&times;</button>
@@ -213,33 +221,50 @@
     </div>
 
     <!-- ============ GUESTBOOK ============ -->
-    <section class="guestbook" id="guestbook">
+    <!-- <section class="guestbook" id="guestbook">
       <div class="container">
         <p class="section-eyebrow reveal">Lời yêu thương</p>
         <h2 class="section-title reveal">Sổ Lưu Bút</h2>
 
-        <form class="guestbook__form reveal" id="guestbookForm">
+        
+      </div>
+    </section> -->
+    <div class="guestbook__list guestbook__floating" id="guestbookList" aria-live="polite"></div>
+
+    <button type="button" class="guestbook-quick-input" id="guestbookQuickInput" aria-haspopup="dialog" aria-controls="guestbookModal">
+      <span class="guestbook-quick-input__text">Gửi lời chúc...</span>
+      <span class="guestbook-quick-input__icon" aria-hidden="true">💬</span>
+    </button>
+
+    <div class="guestbook-modal" id="guestbookModal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-label="Gửi lời chúc">
+      <div class="guestbook-modal__overlay" id="guestbookModalOverlay"></div>
+      <div class="guestbook-modal__panel">
+        <button type="button" class="guestbook-modal__close" id="guestbookModalClose" aria-label="Đóng">&times;</button>
+        <p class="guestbook-modal__eyebrow">Gửi lời chúc đến cô dâu chú rể</p>
+
+        <form class="guestbook__form" id="guestbookForm">
           <div class="form-row">
             <label for="gbName" class="sr-only">Họ tên</label>
             <input type="text" id="gbName" name="gbName" placeholder="Họ và tên của bạn" required maxlength="50">
           </div>
           <div class="form-row">
             <label for="gbMessage" class="sr-only">Lời chúc</label>
-            <textarea id="gbMessage" name="gbMessage" rows="3" placeholder="Gửi lời chúc phúc đến đôi uyên ương..." required maxlength="300"></textarea>
+            <textarea id="gbMessage" name="gbMessage" rows="3" placeholder="Gửi lời chúc phúc đến đôi uyên ương..."
+              required maxlength="300"></textarea>
           </div>
           <button type="submit" class="btn btn--fill">Gửi lời chúc 💌</button>
         </form>
-
-        <div class="guestbook__list" id="guestbookList" aria-live="polite"><!-- render bằng JS --></div>
       </div>
-    </section>
+    </div>
 
     <!-- ============ RSVP ============ -->
     <section class="rsvp" id="rsvp">
       <div class="container">
         <p class="section-eyebrow reveal">Phản hồi tham dự</p>
         <h2 class="section-title reveal">Xác Nhận Tham Dự</h2>
-        <p class="rsvp__note reveal">Vui lòng cho chúng tôi biết bạn có thể đến chung vui cùng gia đình để tiện sắp xếp.</p>
+        <p class="rsvp__note reveal">Vui lòng cho chúng tôi biết bạn có thể đến chung vui cùng gia đình để tiện sắp xếp.
+        </p>
 
         <form class="rsvp__form reveal" id="rsvpForm">
           <div class="form-row">
@@ -256,23 +281,25 @@
             <div class="choice-group">
               <label class="choice">
                 <input type="radio" name="rsvpAttend" value="yes" checked>
-                <span>Có, tôi sẽ đến 🎉</span>
+                <span>Có, tôi sẽ đến</span>
               </label>
               <label class="choice">
                 <input type="radio" name="rsvpAttend" value="no">
-                <span>Rất tiếc, không thể 😢</span>
+                <span>Rất tiếc, không thể</span>
               </label>
             </div>
           </div>
 
           <div class="form-row">
             <label for="rsvpGuests" class="sr-only">Số lượng người tham dự</label>
-            <input type="number" id="rsvpGuests" name="rsvpGuests" min="1" max="10" value="1" placeholder="Số người tham dự">
+            <input type="number" id="rsvpGuests" name="rsvpGuests" min="1" max="10" value="1"
+              placeholder="Số người tham dự">
           </div>
 
           <div class="form-row">
             <label for="rsvpNote" class="sr-only">Lời nhắn</label>
-            <textarea id="rsvpNote" name="rsvpNote" rows="2" placeholder="Lời nhắn thêm (không bắt buộc)" maxlength="200"></textarea>
+            <textarea id="rsvpNote" name="rsvpNote" rows="2" placeholder="Lời nhắn thêm (không bắt buộc)"
+              maxlength="200"></textarea>
           </div>
 
           <button type="submit" class="btn btn--fill">Gửi xác nhận</button>
@@ -298,4 +325,256 @@
 
   <script src="script.js"></script>
 </body>
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzha6aA9_6mbRSqUcLR26LJtMQgKVI1UNi8QC27twUQ8aZtVDUJ3pjF5Oa-5g-3DRl/exec";
+
+  const form = document.getElementById("rsvpForm");
+  const status = document.getElementById("rsvpStatus");
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    status.textContent = "Đang gửi...";
+
+    const data = {
+      name: document.getElementById("rsvpName").value.trim(),
+      phone: document.getElementById("rsvpPhone").value.trim(),
+      attend: document.querySelector('input[name="rsvpAttend"]:checked').value,
+      guests: document.getElementById("rsvpGuests").value,
+      note: document.getElementById("rsvpNote").value.trim()
+    };
+
+    try {
+
+      const formData = new FormData();
+      formData.append("action", "rsvp");
+      formData.append("name", data.name);
+      formData.append("phone", data.phone);
+      formData.append("attend", data.attend);
+      formData.append("guests", data.guests);
+      formData.append("note", data.note);
+
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+
+        form.reset();
+
+        document.querySelector('input[value="yes"]').checked = true;
+        document.getElementById("rsvpGuests").value = 1;
+
+      } else {
+
+        status.textContent = "Có lỗi: " + result.message;
+
+      }
+
+    } catch (error) {
+
+      console.error(error);
+
+      status.textContent = "Không thể kết nối tới máy chủ.";
+    }
+
+  });
+  const guestbookForm = document.getElementById("guestbookForm");
+  const guestbookQuickInput = document.getElementById("guestbookQuickInput");
+  const guestbookModal = document.getElementById("guestbookModal");
+  const guestbookModalOverlay = document.getElementById("guestbookModalOverlay");
+  const guestbookModalClose = document.getElementById("guestbookModalClose");
+
+  function openGuestbookModal() {
+    if (!guestbookModal) return;
+    guestbookModal.classList.add("is-open");
+    guestbookModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeGuestbookModal() {
+    if (!guestbookModal) return;
+    guestbookModal.classList.remove("is-open");
+    guestbookModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (guestbookQuickInput) {
+    guestbookQuickInput.addEventListener("click", openGuestbookModal);
+  }
+
+  if (guestbookModalOverlay) {
+    guestbookModalOverlay.addEventListener("click", closeGuestbookModal);
+  }
+
+  if (guestbookModalClose) {
+    guestbookModalClose.addEventListener("click", closeGuestbookModal);
+  }
+
+  let guestbookTickerRafId = null;
+  let guestbookTickerLastTs = 0;
+  let guestbookTickerOffset = 0;
+
+  function startGuestbookTicker(listElement) {
+    if (guestbookTickerRafId) {
+      cancelAnimationFrame(guestbookTickerRafId);
+      guestbookTickerRafId = null;
+    }
+
+    guestbookTickerLastTs = 0;
+    guestbookTickerOffset = 0;
+
+    if (!listElement) return;
+
+    const track = listElement.querySelector('.guestbook__floating-track');
+    if (!track) return;
+
+    const gap = parseFloat(getComputedStyle(track).rowGap || getComputedStyle(track).gap || '0') || 0;
+    track.style.transform = 'translateY(0px)';
+
+    const step = (timestamp) => {
+      if (!guestbookTickerLastTs) {
+        guestbookTickerLastTs = timestamp;
+      }
+
+      const delta = timestamp - guestbookTickerLastTs;
+      guestbookTickerLastTs = timestamp;
+
+      // Tốc độ cuộn nhẹ, phù hợp khung lời chúc nổi
+      guestbookTickerOffset += (delta / 1000) * 20;
+
+      const firstItem = track.firstElementChild;
+      if (firstItem) {
+        const firstItemHeight = firstItem.getBoundingClientRect().height + gap;
+
+        if (guestbookTickerOffset >= firstItemHeight) {
+          guestbookTickerOffset -= firstItemHeight;
+          track.appendChild(firstItem);
+        }
+      }
+
+      track.style.transform = `translateY(-${guestbookTickerOffset}px)`;
+      guestbookTickerRafId = requestAnimationFrame(step);
+    };
+
+    guestbookTickerRafId = requestAnimationFrame(step);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && guestbookModal?.classList.contains("is-open")) {
+      closeGuestbookModal();
+    }
+  });
+
+  guestbookForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const name = document.getElementById("gbName").value.trim();
+    const message = document.getElementById("gbMessage").value.trim();
+
+    if (!name || !message) {
+      alert("Vui lòng nhập đầy đủ thông tin.");
+      return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("action", "guestbook");
+    formData.append("name", name);
+    formData.append("message", message);
+
+    const button = guestbookForm.querySelector("button[type='submit']");
+    const oldText = button.textContent;
+
+    button.disabled = true;
+    button.textContent = "Đang gửi...";
+
+    try {
+
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+
+        guestbookForm.reset();
+        closeGuestbookModal();
+
+        button.textContent = "Đã gửi ❤️";
+
+        // Load lại danh sách lời chúc
+        loadGuestbook();
+
+        setTimeout(() => {
+          button.textContent = oldText;
+          button.disabled = false;
+        }, 1500);
+
+      } else {
+
+        alert(result.message || "Có lỗi xảy ra.");
+
+        button.textContent = oldText;
+        button.disabled = false;
+
+      }
+
+    } catch (err) {
+
+      console.error(err);
+
+      alert("Không thể kết nối tới máy chủ.");
+
+      button.textContent = oldText;
+      button.disabled = false;
+
+    }
+
+  });
+  async function loadGuestbook() {
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzha6aA9_6mbRSqUcLR26LJtMQgKVI1UNi8QC27twUQ8aZtVDUJ3pjF5Oa-5g-3DRl/exec";
+    try {
+
+        const response = await fetch(`${SCRIPT_URL}?action=guestbook`);
+        const data = await response.json();
+
+        const list = document.getElementById('guestbookList');
+        if (!list) return;
+
+        list.classList.add('guestbook__floating');
+
+        if (!data.length) {
+          list.innerHTML = '<p class="guestbook__empty">Hãy là người đầu tiên gửi lời chúc phúc đến đôi uyên ương 💚</p>';
+          return;
+        }
+
+        const tickerItems = data.map(entry => `
+          <article class="guestbook__entry">
+            <p class="guestbook__entry-name">${escapeHtml(entry.name)}: <span class="guestbook__entry-msg">${escapeHtml(entry.message)}</span></p>
+          </article>
+        `).join('');
+
+        list.innerHTML = `<div class="guestbook__floating-track">${tickerItems}</div>`;
+        startGuestbookTicker(list);
+
+    } catch (err) {
+
+        console.error(err);
+
+    }
+
+}
+
+// Tự động tải khi mở trang
+loadGuestbook();
+</script>
+
 </html>

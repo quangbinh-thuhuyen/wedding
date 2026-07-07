@@ -14,7 +14,7 @@ const weddingData = {
   // ---- Thông tin chung ----
   groom: {
     name: 'Quang Bình',
-    fullName: 'Nguyễn Quang Bình',
+    fullName: 'Lê Quang Bình',
     role: 'Chú rể',
     photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop',
     description: 'Con trai của ông Nguyễn Văn A và bà Trần Thị B. Người luôn mang đến sự bình yên và tiếng cười trong mọi khoảnh khắc.',
@@ -25,7 +25,7 @@ const weddingData = {
 
   bride: {
     name: 'Thu Huyền',
-    fullName: 'Lê Thu Huyền',
+    fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
     photo: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop',
     description: 'Con gái của ông Lê Văn C và bà Phạm Thị D. Cô gái dịu dàng, luôn tin vào những điều tử tế và một tình yêu chân thành.',
@@ -436,7 +436,7 @@ function renderGallery() {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.5 });
   items.forEach(item => revealObserver.observe(item));
 }
 
@@ -557,7 +557,7 @@ function renderEventInfo() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.5 });
   cards.forEach(card => observer.observe(card));
 }
 
@@ -640,7 +640,7 @@ function copyToClipboard(text, btnEl) {
     setTimeout(() => {
       btnEl.textContent = original;
       btnEl.classList.remove('is-copied');
-    }, 1800);
+    }, 1500);
   };
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -659,8 +659,6 @@ function initGuestbook() {
   const list = document.getElementById('guestbookList');
   if (!form || !list) return;
 
-  renderGuestbookEntries();
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const nameInput = document.getElementById('gbName');
@@ -678,7 +676,6 @@ function initGuestbook() {
     };
 
     saveGuestbookEntry(entry);
-    renderGuestbookEntries();
     form.reset();
   });
 }
@@ -699,26 +696,6 @@ function saveGuestbookEntry(entry) {
 
   // Chỗ để gọi API backend thực tế trong tương lai, ví dụ:
   // if (weddingData.api.guestbookEndpoint) sendGuestbookToApi(entry);
-}
-
-function renderGuestbookEntries() {
-  const list = document.getElementById('guestbookList');
-  if (!list) return;
-
-  const entries = getGuestbookEntries();
-
-  if (!entries.length) {
-    list.innerHTML = '<p class="guestbook__empty">Hãy là người đầu tiên gửi lời chúc phúc đến đôi uyên ương 💚</p>';
-    return;
-  }
-
-  list.innerHTML = entries.map(entry => `
-    <article class="guestbook__entry">
-      <p class="guestbook__entry-name">${escapeHtml(entry.name)}</p>
-      <p class="guestbook__entry-msg">${escapeHtml(entry.message)}</p>
-      <p class="guestbook__entry-date">${formatRelativeDate(entry.date)}</p>
-    </article>
-  `).join('');
 }
 
 /* Hàm dự phòng để gửi lời chúc lên server thật (chưa kích hoạt) */
@@ -816,7 +793,7 @@ function initRevealOnScroll() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.5 });
 
   revealEls.forEach(el => observer.observe(el));
 }
