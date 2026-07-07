@@ -1469,7 +1469,8 @@ section { padding-block: var(--space-xl); position: relative; }
 }
 
 .guestbook__floating .guestbook__entry {
-  background: rgba(98, 189, 133, 0.5);
+  /* background: rgba(98, 189, 133, 0.5); */
+  background: var(--color-sage);
   border-radius: 8px;
   padding: 0.4rem 0.7rem;
   box-shadow: none;
