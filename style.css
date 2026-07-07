@@ -1353,7 +1353,8 @@ section { padding-block: var(--space-xl); position: relative; }
 .choice-group {
   display: flex;
   gap: var(--space-sm);
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .choice {
   display: flex;
@@ -1362,11 +1363,11 @@ section { padding-block: var(--space-xl); position: relative; }
   font-size: 0.9rem;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 0.5rem;
   border-radius: var(--radius-full);
   cursor: pointer;
 }
-.choice input { accent-color: var(--color-sage-dark); }
+.choice input { accent-color: var(--color-sage-dark); width: auto !important; }
 
 .guestbook__list {
   max-width: 780px;
