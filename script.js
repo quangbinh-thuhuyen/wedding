@@ -16,7 +16,7 @@ const weddingData = {
     name: 'Quang Bình',
     fullName: 'Lê Quang Bình',
     role: 'Chú rể',
-    photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop',
+    photo: 'IMG_4965.JPG',
     description: 'Hiện là kỹ sư lập trình tại VNPT Thanh Hóa, là người luôn nghiêm túc và trách nhiệm trong công việc, nhưng cũng rất tình cảm và tinh tế trong cuộc sống. Anh tin rằng một mái ấm hạnh phúc cũng cần được xây dựng cẩn thận như một dòng code tốt - từng chút một, bằng sự thấu hiểu, kiên nhẫn và yêu thương chân thành dành cho người mình chọn để đi cùng suốt quãng đường phía trước',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -27,7 +27,7 @@ const weddingData = {
     name: 'Thu Huyền',
     fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
-    photo: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop',
+    photo: 'IMG_4953.JPG',
     description: 'Hiện đang công tác trong ngành giáo dục mầm non, là người phụ nữ dịu dàng, tận tâm và giàu lòng yêu trẻ. Công việc hằng ngày với những nụ cười hồn nhiên của các em nhỏ đã hun đúc trong cô sự kiên nhẫn, bao dung và một trái tim luôn tràn đầy yêu thương. Cô tin rằng, cũng như việc chăm sóc từng mầm non nhỏ, một tình yêu đẹp cần được vun trồng bằng sự chân thành, thấu hiểu và kiên trì mỗi ngày.',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -90,7 +90,7 @@ const weddingData = {
 
   // ---- Album ảnh cưới ----
   gallery: [
-    { url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop', caption: 'Khoảnh khắc ngọt ngào' },
+    { url: 'IMG_7874.jpg', caption: 'Lễ dạm ngõ' },
     { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau' },
     { url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop', caption: 'Nắm tay nhau' },
     { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành' },

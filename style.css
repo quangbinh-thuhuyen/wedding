@@ -1745,7 +1745,7 @@ section {
 .guestbook-toggle {
   position: fixed;
   right: 0.9rem;
-  top: calc(22vh - 46px);
+  bottom: 6rem;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -1783,7 +1783,7 @@ section {
   left: 0.9rem;
   top: 22vh;
   width: min(320px, calc(100vw - 1.8rem));
-  height: 350px;
+  height: min(560px, 48vh);
   z-index: 450;
   display: block;
   max-width: none;
