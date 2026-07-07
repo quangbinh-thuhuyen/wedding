@@ -1353,7 +1353,7 @@ section { padding-block: var(--space-xl); position: relative; }
 .choice-group {
   display: flex;
   gap: var(--space-sm);
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 .choice {
