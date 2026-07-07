@@ -356,7 +356,8 @@ function formatDateShort(isoString) {
   const day = String(d.getDate()).padStart(2, '0');
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const year = d.getFullYear();
-  return `${day} . ${month} . ${year}`;
+  const weekday = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][d.getDay()];
+  return `${weekday} - ${day} . ${month} . ${year}`;
 }
 
 /* =========================================================
