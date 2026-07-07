@@ -229,12 +229,18 @@
         
       </div>
     </section> -->
-    <div class="guestbook__list guestbook__floating" id="guestbookList" aria-live="polite"></div>
+    <div class="guestbook-widget-group" id="guestbookWidgetGroup">
+      <button type="button" class="guestbook-toggle" id="guestbookToggle" aria-label="Ẩn lời chúc">
+        <span class="guestbook-toggle__icon" id="guestbookToggleIcon" aria-hidden="true">✕</span>
+      </button>
 
-    <button type="button" class="guestbook-quick-input" id="guestbookQuickInput" aria-haspopup="dialog" aria-controls="guestbookModal">
-      <span class="guestbook-quick-input__text">Gửi lời chúc...</span>
-      <span class="guestbook-quick-input__icon" aria-hidden="true">💬</span>
-    </button>
+      <div class="guestbook__list guestbook__floating" id="guestbookList" aria-live="polite"></div>
+
+      <button type="button" class="guestbook-quick-input" id="guestbookQuickInput" aria-haspopup="dialog" aria-controls="guestbookModal">
+        <span class="guestbook-quick-input__text">Gửi lời chúc...</span>
+        <span class="guestbook-quick-input__icon" aria-hidden="true">💬</span>
+      </button>
+    </div>
 
     <div class="guestbook-modal" id="guestbookModal" aria-hidden="true" role="dialog" aria-modal="true"
       aria-label="Gửi lời chúc">
@@ -575,6 +581,35 @@
 
 // Tự động tải khi mở trang
 loadGuestbook();
+
+// ============ TOGGLE ẨN/HIỆN Ô LỜI CHÚC + DANH SÁCH LỜI CHÚC ============
+const guestbookToggle = document.getElementById("guestbookToggle");
+const guestbookToggleIcon = document.getElementById("guestbookToggleIcon");
+const guestbookListEl = document.getElementById("guestbookList");
+let guestbookWidgetVisible = true;
+
+function setGuestbookWidgetVisibility(visible) {
+  guestbookWidgetVisible = visible;
+
+  if (guestbookListEl) {
+    guestbookListEl.classList.toggle("is-widget-hidden", !visible);
+  }
+  if (guestbookQuickInput) {
+    guestbookQuickInput.classList.toggle("is-widget-hidden", !visible);
+  }
+  if (guestbookToggleIcon) {
+    guestbookToggleIcon.textContent = visible ? "✕" : "☰";
+  }
+  if (guestbookToggle) {
+    guestbookToggle.setAttribute("aria-label", visible ? "Ẩn lời chúc" : "Hiện lời chúc");
+  }
+}
+
+if (guestbookToggle) {
+  guestbookToggle.addEventListener("click", () => {
+    setGuestbookWidgetVisibility(!guestbookWidgetVisible);
+  });
+}
 </script>
 
 </html>

@@ -343,8 +343,8 @@ section { padding-block: var(--space-xl); position: relative; }
   left: 1.5rem;
   bottom: 1.5rem;
   z-index: 500;
-  width: 52px;
-  height: 52px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -368,8 +368,8 @@ section { padding-block: var(--space-xl); position: relative; }
   right: 1.5rem;
   bottom: 1.5rem;
   z-index: 500;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--color-sage-dark);
   color: var(--color-white);
@@ -1389,12 +1389,52 @@ section { padding-block: var(--space-xl); position: relative; }
   color: var(--color-text-lighter);
 }
 
+.guestbook-widget-group {
+  position: relative;
+}
+
+/* Nút tròn ẩn/hiện toàn bộ khối lời chúc (danh sách + ô nhập) */
+.guestbook-toggle {
+  position: fixed;
+  right: 0.9rem;
+  bottom: calc(22vh - 46px);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(92, 122, 87, 0.85);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  z-index: 470;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: transform var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft);
+}
+.guestbook-toggle:hover {
+  background: rgba(92, 122, 87, 1);
+  transform: scale(1.08);
+}
+
+/* Khi bị ẩn: danh sách lời chúc và ô nhập lời chúc biến mất mượt mà,
+   nút toggle vẫn luôn hiển thị để có thể bấm lại */
+.guestbook__floating.is-widget-hidden,
+.guestbook-quick-input.is-widget-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-soft), visibility var(--dur-fast) var(--ease-soft);
+}
+
 .guestbook__floating {
   position: fixed;
   left: 0.9rem;
   top: 22vh;
   width: min(320px, calc(100vw - 1.8rem));
-  height: 350px;
+  height: 450px;
   z-index: 450;
   display: block;
   max-width: none;
@@ -1414,7 +1454,7 @@ section { padding-block: var(--space-xl); position: relative; }
 }
 
 .guestbook__floating .guestbook__entry {
-  background: rgba(98, 189, 133, 0.5);
+  background: #8FA888;
   border-radius: 8px;
   padding: 0.4rem 0.7rem;
   box-shadow: none;
@@ -1422,17 +1462,18 @@ section { padding-block: var(--space-xl); position: relative; }
 }
 
 .guestbook__floating .guestbook__entry-name {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: bold;
   color: #ffffff;
   font-family: var(--font-body);
 }
 
 .guestbook__floating .guestbook__entry-msg {
   margin-top: 0.2rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.35;
+  font-weight: 400;
   color: #ffffff;
   font-family: var(--font-body);
 }
@@ -1469,9 +1510,14 @@ section { padding-block: var(--space-xl); position: relative; }
     top: auto;
     bottom: 1rem;
     left: 0.75rem;
-    width: min(92vw, 250px);
+    width: min(92vw, 300px);
     height: 250px;
     opacity: 0.72;
+  }
+  .guestbook-toggle {
+    top: auto;
+    bottom: 5rem;
+    right: 0.75rem;
   }
   .guestbook__form, .rsvp__form { padding: var(--space-md); }
 }
