@@ -365,11 +365,11 @@ section { padding-block: var(--space-xl); position: relative; }
 /* ---------- 10. BACK TO TOP ---------- */
 .back-to-top {
   position: fixed;
-  right: 1.5rem;
+  right: 0.75rem;
   bottom: 1.5rem;
   z-index: 500;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: var(--color-sage-dark);
   color: var(--color-white);
@@ -514,6 +514,21 @@ section { padding-block: var(--space-xl); position: relative; }
   font-style: italic;
   color: var(--color-text-light);
   font-size: 1.05rem;
+}
+
+.hero__invitee {
+  display: none;
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  color: var(--color-sage-darker);
+  letter-spacing: 0.02em;
+}
+.hero__invitee.is-visible { display: block; }
+.hero__invitee span {
+  color: var(--color-gold);
+  font-style: italic;
 }
 
 .hero__scroll {
@@ -1397,7 +1412,7 @@ section { padding-block: var(--space-xl); position: relative; }
 .guestbook-toggle {
   position: fixed;
   right: 0.9rem;
-  bottom: calc(22vh - 46px);
+  top: calc(22vh - 46px);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -1434,7 +1449,7 @@ section { padding-block: var(--space-xl); position: relative; }
   left: 0.9rem;
   top: 22vh;
   width: min(320px, calc(100vw - 1.8rem));
-  height: 450px;
+  height: 350px;
   z-index: 450;
   display: block;
   max-width: none;
@@ -1454,7 +1469,7 @@ section { padding-block: var(--space-xl); position: relative; }
 }
 
 .guestbook__floating .guestbook__entry {
-  background: #8FA888;
+  background: rgba(98, 189, 133, 0.5);
   border-radius: 8px;
   padding: 0.4rem 0.7rem;
   box-shadow: none;
@@ -1516,7 +1531,7 @@ section { padding-block: var(--space-xl); position: relative; }
   }
   .guestbook-toggle {
     top: auto;
-    bottom: 5rem;
+    bottom: 4.5rem;
     right: 0.75rem;
   }
   .guestbook__form, .rsvp__form { padding: var(--space-md); }

@@ -160,7 +160,42 @@ document.addEventListener('DOMContentLoaded', () => {
   initRsvpForm();
   initRevealOnScroll();
   initSmoothAnchorScroll();
+  initGuestName();
 });
+
+/* =========================================================
+   3.5. TÊN KHÁCH MỜI — đọc từ URL (?ten=...) để cá nhân hoá thiệp
+   Ví dụ link gửi cho từng khách:
+   https://tenmien-cua-ban.com/?ten=Nguyễn%20Văn%20A
+   ========================================================= */
+function initGuestName() {
+  const params = new URLSearchParams(window.location.search);
+  const rawName = params.get('ten') || params.get('name') || params.get('to') || params.get('guest');
+  if (!rawName) return;
+
+  const guestName = rawName.trim();
+  if (!guestName) return;
+
+  const heroInvitee = document.getElementById('heroInvitee');
+  if (heroInvitee) {
+    heroInvitee.innerHTML = `Trân trọng kính mời: <span>${escapeHtml(guestName)}</span>`;
+    heroInvitee.classList.add('is-visible');
+  }
+
+  const eventEyebrow = document.getElementById('eventEyebrow');
+  if (eventEyebrow) {
+    eventEyebrow.textContent = `Trân trọng kính mời: ${guestName}`;
+  }
+
+  // Gợi ý sẵn tên khách khi họ điền form Xác nhận tham dự / Lưu bút
+  const rsvpNameInput = document.getElementById('rsvpName');
+  if (rsvpNameInput && !rsvpNameInput.value) rsvpNameInput.value = guestName;
+
+  const gbNameInput = document.getElementById('gbName');
+  if (gbNameInput && !gbNameInput.value) gbNameInput.value = guestName;
+
+  document.title = `Thiệp mời ${guestName} | Quang Bình & Thu Huyền`;
+}
 
 /* =========================================================
    4. LOADER — màn hình chờ khi tải trang
