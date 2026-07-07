@@ -17,7 +17,7 @@ const weddingData = {
     fullName: 'Lê Quang Bình',
     role: 'Chú rể',
     photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop',
-    description: 'Con trai của ông Nguyễn Văn A và bà Trần Thị B. Người luôn mang đến sự bình yên và tiếng cười trong mọi khoảnh khắc.',
+    description: 'Hiện là kỹ sư lập trình tại VNPT Thanh Hóa, là người luôn nghiêm túc và trách nhiệm trong công việc, nhưng cũng rất tình cảm và tinh tế trong cuộc sống. Anh tin rằng một mái ấm hạnh phúc cũng cần được xây dựng cẩn thận như một dòng code tốt - từng chút một, bằng sự thấu hiểu, kiên nhẫn và yêu thương chân thành dành cho người mình chọn để đi cùng suốt quãng đường phía trước',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
     ]
@@ -28,7 +28,7 @@ const weddingData = {
     fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
     photo: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop',
-    description: 'Con gái của ông Lê Văn C và bà Phạm Thị D. Cô gái dịu dàng, luôn tin vào những điều tử tế và một tình yêu chân thành.',
+    description: 'Hiện đang công tác trong ngành giáo dục mầm non, là người phụ nữ dịu dàng, tận tâm và giàu lòng yêu trẻ. Công việc hằng ngày với những nụ cười hồn nhiên của các em nhỏ đã hun đúc trong cô sự kiên nhẫn, bao dung và một trái tim luôn tràn đầy yêu thương. Cô tin rằng, cũng như việc chăm sóc từng mầm non nhỏ, một tình yêu đẹp cần được vun trồng bằng sự chân thành, thấu hiểu và kiên trì mỗi ngày.',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
     ]
@@ -53,7 +53,7 @@ const weddingData = {
       dateShort: '16/11/2026',
       time: '11:00 AM',
       venueName: 'Tư gia Chú Rể',
-      address: 'Thôn 6, xã Hoằng Thanh, tỉnh Thanh Hóa', // địa chỉ nhà trai — sửa nếu khác
+      address: 'Thôn Yên Ngọc, xã Hoằng Thanh, tỉnh Thanh Hóa', // địa chỉ nhà trai — sửa nếu khác
       mapLinkUrl: 'https://maps.app.goo.gl/DM3cyQWVC2sX5kzs6', // link chỉ đường nhà trai
       iso: '2026-11-16T11:00:00' // dùng làm mốc đếm ngược
     }
@@ -62,23 +62,23 @@ const weddingData = {
   // ---- Câu chuyện tình yêu (timeline) ----
   loveStory: [
     {
-      year: '2020',
+      year: '2023',
       title: 'Lần đầu gặp gỡ',
       text: 'Chúng tôi tình cờ quen nhau qua một người bạn chung, và ngay từ ánh nhìn đầu tiên đã cảm thấy có điều gì đó rất đặc biệt.'
     },
     {
-      year: '2021',
+      year: '2024',
       title: 'Bắt đầu hẹn hò',
       text: 'Sau nhiều lần trò chuyện, chúng tôi quyết định cùng nhau đi trên một hành trình - hành trình của những yêu thương giản dị.'
     },
     {
-      year: '2023',
-      title: 'Cùng nhau vượt qua thử thách',
-      text: 'Những khó khăn trong cuộc sống không làm chúng tôi rời xa nhau mà ngược lại càng thêm gắn kết và thấu hiểu.'
-    },
-    {
       year: '2026',
       title: 'Lời cầu hôn',
+      text: 'Trong một buổi hoàng hôn dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.'
+    },
+    {
+      year: '14.11.2026',
+      title: 'Lễ Nạp Tài',
       text: 'Trong một buổi hoàng hôn dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.'
     },
     {
