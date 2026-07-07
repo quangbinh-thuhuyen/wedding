@@ -241,6 +241,45 @@ section { padding-block: var(--space-xl); position: relative; }
 }
 @keyframes loaderFill { to { width: 100%; } }
 
+/* ---------- 6. FALLING LEAVES ---------- */
+.falling-leaves {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.falling-leaf {
+  position: absolute;
+  top: -12vh;
+  left: var(--leaf-left);
+  font-size: var(--leaf-size);
+  opacity: var(--leaf-opacity);
+  filter: drop-shadow(0 4px 8px rgba(60, 80, 55, 0.14));
+  transform: translate3d(0, 0, 0) rotate(var(--leaf-rotate));
+  animation: leafFall var(--leaf-duration) linear var(--leaf-delay) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(var(--leaf-rotate));
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--leaf-opacity);
+  }
+  100% {
+    transform: translate3d(var(--leaf-drift), 112vh, 0) rotate(calc(var(--leaf-rotate) + var(--leaf-spin)));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-leaves { display: none; }
+}
+
 /* ---------- 7. SCROLL PROGRESS ---------- */
 .scroll-progress {
   position: fixed;
@@ -667,7 +706,11 @@ section { padding-block: var(--space-xl); position: relative; }
 
 @media (max-width: 760px) {
   .couple__grid { grid-template-columns: 1fr; }
-  .couple__center { order: 3; }
+  .couple__grid > .couple__card:first-child { order: 1; }
+  .couple__center {
+    order: 2;
+  }
+  .couple__grid > .couple__card:last-child { order: 3; }
 }
 
 /* ---------- 14. LOVE STORY TIMELINE ---------- */
@@ -1118,9 +1161,11 @@ section { padding-block: var(--space-xl); position: relative; }
   font-size: 1.15rem;
   margin-top: var(--space-sm);
   color: var(--color-sage-darker);
+  text-align: center;
 }
 
 .gift__bank {
+  text-align: center;
   font-size: 0.85rem;
   color: var(--color-text-light);
   margin-top: 0.2rem;
@@ -1134,7 +1179,7 @@ section { padding-block: var(--space-xl); position: relative; }
   justify-content: center;
   background: var(--color-mint-soft);
   border-radius: var(--radius-full);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0rem;
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.03em;

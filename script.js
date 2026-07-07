@@ -43,9 +43,9 @@ const weddingData = {
       dateShort: '14/11/2026',
       time: '09:00 AM',
       venueName: 'Tư gia Cô Dâu',
-      address: 'Thôn 6, xã Hoằng Thanh, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
-      mapLinkUrl: 'https://www.google.com/maps/search/?api=1&query=Ho%E1%BA%B1ng+Thanh%2C+Thanh+H%C3%B3a', // link chỉ đường nhà gái
-      iso: '2026-11-14T08:00:00'
+      address: 'Thôn Đông Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
+      mapLinkUrl: 'https://maps.app.goo.gl/gzSH3G2czYDDHQ2q9', // link chỉ đường nhà gái
+      iso: '2026-11-14T09:00:00'
     },
     weddingDay: {
       label: 'Lễ Thành Hôn',
@@ -54,8 +54,8 @@ const weddingData = {
       time: '11:00 AM',
       venueName: 'Tư gia Chú Rể',
       address: 'Thôn 6, xã Hoằng Thanh, tỉnh Thanh Hóa', // địa chỉ nhà trai — sửa nếu khác
-      mapLinkUrl: 'https://www.google.com/maps/search/?api=1&query=Ho%E1%BA%B1ng+Thanh%2C+Thanh+H%C3%B3a', // link chỉ đường nhà trai
-      iso: '2026-11-16T10:30:00' // dùng làm mốc đếm ngược
+      mapLinkUrl: 'https://maps.app.goo.gl/DM3cyQWVC2sX5kzs6', // link chỉ đường nhà trai
+      iso: '2026-11-16T11:00:00' // dùng làm mốc đếm ngược
     }
   },
 
@@ -103,16 +103,16 @@ const weddingData = {
   // ---- Thông tin mừng cưới / QR chuyển khoản ----
   gift: [
     {
-      owner: 'Quang Bình (Chú rể)',
-      bank: 'Vietcombank - CN Thanh Hóa',
-      accountNumber: '0123456789012',
-      qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Groom-Account-0123456789012'
+      owner: 'Lê Quang Bình',
+      bank: 'Vietcombank',
+      accountNumber: '1018632996',
+      qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Groom-Account-1018632996'
     },
     {
-      owner: 'Thu Huyền (Cô dâu)',
-      bank: 'Techcombank - CN Thanh Hóa',
-      accountNumber: '9876543210987',
-      qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Bride-Account-9876543210987'
+      owner: 'Nguyễn Thị Thu Huyền',
+      bank: 'BIDV',
+      accountNumber: '5011081063',
+      qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Bride-Account-5011081063'
     }
   ],
 
@@ -143,6 +143,7 @@ const STORAGE_KEYS = {
    ========================================================= */
 document.addEventListener('DOMContentLoaded', () => {
   initLoader();
+  initFallingLeaves();
   initScrollProgress();
   initDotNav();
   initBackToTop();
@@ -259,6 +260,51 @@ function initMusicToggle() {
     }
     isPlaying = !isPlaying;
   });
+}
+
+/* =========================================================
+   8.5. FALLING LEAVES — lớp lá rơi nhẹ trên toàn trang
+   ========================================================= */
+function initFallingLeaves() {
+  const container = document.getElementById('fallingLeaves');
+  if (!container) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const leafIcons = ['🍃', '🌿'];
+  const leafCount = 18;
+  const fragment = document.createDocumentFragment();
+
+  for (let index = 0; index < leafCount; index += 1) {
+    const leaf = document.createElement('span');
+    const size = 16 + Math.random() * 22;
+    const opacity = 0.18 + Math.random() * 0.24;
+    const duration = 9 + Math.random() * 8;
+    const delay = -(Math.random() * duration);
+    const drift = `${Math.round((Math.random() * 2 - 1) * 140)}px`;
+    const spin = `${Math.round((Math.random() * 2 - 1) * 220)}deg`;
+    const left = `${Math.random() * 100}%`;
+    const rotate = `${Math.round((Math.random() * 2 - 1) * 40)}deg`;
+
+    leaf.className = 'falling-leaf';
+    leaf.textContent = leafIcons[index % leafIcons.length];
+    leaf.setAttribute('aria-hidden', 'true');
+    leaf.style.setProperty('--leaf-left', left);
+    leaf.style.setProperty('--leaf-size', `${size}px`);
+    leaf.style.setProperty('--leaf-opacity', opacity.toFixed(2));
+    leaf.style.setProperty('--leaf-duration', `${duration.toFixed(2)}s`);
+    leaf.style.setProperty('--leaf-delay', `${delay.toFixed(2)}s`);
+    leaf.style.setProperty('--leaf-drift', drift);
+    leaf.style.setProperty('--leaf-spin', spin);
+    leaf.style.setProperty('--leaf-rotate', rotate);
+
+    fragment.appendChild(leaf);
+  }
+
+  container.replaceChildren(fragment);
 }
 
 /* =========================================================
