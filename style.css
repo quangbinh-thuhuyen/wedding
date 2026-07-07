@@ -1527,9 +1527,9 @@ section { padding-block: var(--space-xl); position: relative; }
     top: auto;
     bottom: 3.75rem;
     left: 0.75rem;
-    width: min(92vw, 300px);
-    height: 250px;
-    opacity: 0.75;
+    width: min(92vw, 280px);
+    height: 220px;
+    opacity: 0.72;
   }
   .guestbook-toggle {
     top: auto;
