@@ -90,7 +90,7 @@ const weddingData = {
 
   // ---- Album ảnh cưới ----
   gallery: [
-    { url: 'IMG_7874.jpg', caption: 'Lễ dạm ngõ' },
+    { url: 'IMG_7874.JPG', caption: 'Lễ dạm ngõ' },
     { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau' },
     { url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop', caption: 'Nắm tay nhau' },
     { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành' },
