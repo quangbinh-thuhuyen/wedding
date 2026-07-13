@@ -878,8 +878,8 @@ section {
   }
 
   .countdown__item {
-    min-width: 78px;
-    padding: var(--space-sm);
+    min-width: 70px;
+    padding: var(--space-xs);
   }
 }
 

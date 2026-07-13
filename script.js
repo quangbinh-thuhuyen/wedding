@@ -93,7 +93,7 @@ const weddingData = {
   // Ghi chú: `featured: true` để ảnh đó xuất hiện ở khối "Nổi bật" (bento) phía trên.
   // Album cuộn ngang bên dưới vẫn hiển thị TẤT CẢ ảnh trong mảng này, không phụ thuộc featured.
   gallery: [
-    { url: 'IMG_7874.jpg', caption: 'Lễ dạm ngõ', featured: true },
+    { url: 'IMG_7874.JPG', caption: 'Lễ dạm ngõ', featured: true },
     { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau', featured: true },
     { url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop', caption: 'Nắm tay nhau' },
     { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành', featured: true },
@@ -277,6 +277,30 @@ function initBackToTop() {
 /* =========================================================
    8. NHẠC NỀN — chỉ phát sau khi người dùng tương tác
    ========================================================= */
+// function initMusicToggle() {
+//   const toggle = document.getElementById('musicToggle');
+//   const audio = document.getElementById('bgMusic');
+//   if (!toggle || !audio) return;
+
+//   audio.src = weddingData.music.url;
+//   audio.volume = 0.5;
+//   let isPlaying = false;
+
+//   toggle.addEventListener('click', () => {
+//     if (isPlaying) {
+//       audio.pause();
+//       toggle.classList.remove('is-playing');
+//       toggle.setAttribute('aria-pressed', 'false');
+//     } else {
+//       audio.play().catch(() => {
+//         // Trình duyệt có thể chặn autoplay; bỏ qua lỗi một cách yên lặng
+//       });
+//       toggle.classList.add('is-playing');
+//       toggle.setAttribute('aria-pressed', 'true');
+//     }
+//     isPlaying = !isPlaying;
+//   });
+// }
 function initMusicToggle() {
   const toggle = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
@@ -286,19 +310,44 @@ function initMusicToggle() {
   audio.volume = 0.5;
   let isPlaying = false;
 
+  function setPlayingUI(playing) {
+    isPlaying = playing;
+    toggle.classList.toggle('is-playing', playing);
+    toggle.setAttribute('aria-pressed', String(playing));
+  }
+
+  function tryPlay() {
+    audio.play()
+      .then(() => setPlayingUI(true))
+      .catch(() => setPlayingUI(false)); // bị trình duyệt chặn, sẽ thử lại khi có tương tác
+  }
+
+  // 1) Thử tự động phát ngay khi trang vừa tải xong
+  window.addEventListener('load', () => {
+    tryPlay();
+  });
+
+  // 2) Nếu bị chặn, tự phát ngay lần chạm/click/cuộn đầu tiên của khách
+  const resumeOnFirstInteraction = () => {
+    if (!isPlaying) tryPlay();
+    document.removeEventListener('click', resumeOnFirstInteraction);
+    document.removeEventListener('touchstart', resumeOnFirstInteraction);
+    document.removeEventListener('scroll', resumeOnFirstInteraction);
+    document.removeEventListener('keydown', resumeOnFirstInteraction);
+  };
+  document.addEventListener('click', resumeOnFirstInteraction, { once: true });
+  document.addEventListener('touchstart', resumeOnFirstInteraction, { once: true });
+  document.addEventListener('scroll', resumeOnFirstInteraction, { once: true, passive: true });
+  document.addEventListener('keydown', resumeOnFirstInteraction, { once: true });
+
+  // 3) Nút bấm vẫn cho phép bật/tắt thủ công như cũ
   toggle.addEventListener('click', () => {
     if (isPlaying) {
       audio.pause();
-      toggle.classList.remove('is-playing');
-      toggle.setAttribute('aria-pressed', 'false');
+      setPlayingUI(false);
     } else {
-      audio.play().catch(() => {
-        // Trình duyệt có thể chặn autoplay; bỏ qua lỗi một cách yên lặng
-      });
-      toggle.classList.add('is-playing');
-      toggle.setAttribute('aria-pressed', 'true');
+      tryPlay();
     }
-    isPlaying = !isPlaying;
   });
 }
 
