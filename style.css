@@ -158,7 +158,7 @@ section {
 .section-eyebrow {
   text-align: center;
   font-family: var(--font-body);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 0.75rem;
   color: var(--color-sage-dark);
@@ -562,7 +562,7 @@ section {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: var(--space-md);
+  padding: var(--space-sm);
   max-width: 760px;
 }
 
@@ -2301,4 +2301,7 @@ section {
     padding: 0.8rem 1.7rem;
     font-size: 0.88rem;
   }
+}
+#eventTen{
+  color: var(--color-gold);
 }

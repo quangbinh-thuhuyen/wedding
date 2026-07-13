@@ -199,7 +199,7 @@ function initGuestName() {
 
   const eventEyebrow = document.getElementById('eventEyebrow');
   if (eventEyebrow) {
-    eventEyebrow.textContent = `Trân trọng kính mời: ${guestName}`;
+    eventEyebrow.innerHTML = `Trân trọng kính mời: <span id="eventTen">${escapeHtml(guestName)}</span>`;
   }
 
   // Gợi ý sẵn tên khách khi họ điền form Xác nhận tham dự / Lưu bút
