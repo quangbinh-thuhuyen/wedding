@@ -173,11 +173,70 @@ document.addEventListener('DOMContentLoaded', () => {
    Ví dụ link gửi cho từng khách:
    https://tenmien-cua-ban.com/?ten=Nguyễn%20Văn%20A
    ========================================================= */
+// Danh sách khách mời — mỗi khách 1 mã ngắn duy nhất
+const guestList = {
+  'k7m': 'gđ bạn Hoài',
+  'p2x': 'gđ bạn Tuyết',
+  'q9v': 'gđ bạn Thương',
+  't4h': 'gđ bạn Hùng',
+  'w1z': 'gđ bạn Phúc',
+  'n6c': 'gđ bạn Đức',
+  'r3f': 'gđ bạn Trâm',
+  'y8b': 'gđ bạn Loan',
+  'l5d': 'gđ bạn Lan Anh',
+  'g2n': 'gđ bạn Nhung',
+  'x7t': 'gđ bạn Trường',
+  'm9k': 'gđ chị Trang',
+  'v4p': 'gđ bạn Tình',
+  'h1q': 'gđ bạn Dung',
+  'b6w': 'gđ bạn Hà',
+  'c3r': 'bạn Nhung',
+  'f8y': 'bạn Mai Hương',
+  'd2l': 'bạn Trinh',
+  'z5g': 'bạn Sơn + nt',
+  't9x': 'bạn Tú',
+  'k4m': 'bạn Quỳnh',
+  'p7v': 'bạn Dung',
+  'q1h': 'bạn Quỳnh',
+  'n8b': 'bạn Trang',
+  'r6c': 'bạn Hà',
+  'y3f': 'gđ bạn Chiến',
+  'l9d': 'bạn Nữ',
+  'g4n': 'bạn Ngọc Quỳnh',
+  'x2t': 'bạn Đại',
+  'm6k': 'bạn Linh',
+  'w5p': 'bạn Nga',
+  'h3q': 'gđ bạn Quang',
+  'b8w': 'bạn Vân',
+  'c1r': 'bạn Yến',
+  'f6y': 'bạn Quý',
+  'd9l': 'bạn Mều + nt',
+  'z2g': 'bạn Cường + nt',
+  't7x': 'bạn Vinh',
+  'k1m': 'bạn Nam',
+  'p4v': 'bạn Ánh',
+  'q6h': 'gđ cháu Đức',
+  'n3b': 'bạn Tuân',
+  'r9c': 'gđ bạn Linh',
+  'y2f': 'bạn Hiền',
+  'l7d': 'gđ bạn Minh',
+  'g5n': 'gđ bạn Bích',
+  'x8t': 'gđ bạn Đình Linh',
+  'm1k': 'gđ bạn Hiếu',
+  'w3p': 'gđ bạn Thế Anh',
+  'h6q': 'bạn My + nt',
+  'b9w': 'bạn Thọ + nt',
+  'c4r': 'bạn Quang Anh + nt',
+  'f7y': 'gđ bạn Linh',
+  'd5l': 'gđ anh Phú',
+  'z8g': 'gđ anh Lập',
+  't2x': 'gđ chị Quỳnh Anh'
+};
 function initGuestName() {
   const params = new URLSearchParams(window.location.search);
-    // Ưu tiên tham số đã mã hóa Base64 (?g=...)
-  const encoded = params.get('g');
-  let rawName = '';
+  // Ưu tiên mã ngắn (?g=a1)
+  const code = params.get('g');
+  let rawName = code && guestList[code] ? guestList[code] : '';
   if (encoded) {
     rawName = decodeGuestName(encoded);
   }
