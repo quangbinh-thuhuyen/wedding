@@ -237,9 +237,6 @@ function initGuestName() {
   // Ưu tiên mã ngắn (?g=a1)
   const code = params.get('g');
   let rawName = code && guestList[code] ? guestList[code] : '';
-  if (encoded) {
-    rawName = decodeGuestName(encoded);
-  }
 
   // Nếu không có/không giải mã được, dùng các tham số dạng chữ thường như cũ
   if (!rawName) {
