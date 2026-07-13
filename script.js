@@ -43,7 +43,7 @@ const weddingData = {
       dateShort: '14/11/2026',
       time: '09:00 AM',
       venueName: 'Tư gia Cô Dâu',
-      address: 'Thôn Đông Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
+      address: 'Thôn Kim Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
       mapLinkUrl: 'https://maps.app.goo.gl/gzSH3G2czYDDHQ2q9', // link chỉ đường nhà gái
       iso: '2026-11-14T09:00:00'
     },
@@ -169,18 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   3.5. TÊN KHÁCH MỜI — đọc từ URL (?ten=... hoặc ?g=<base64>) để cá nhân hoá thiệp
-   Cách 1 (rõ tên, dễ đọc):
+   3.5. TÊN KHÁCH MỜI — đọc từ URL (?ten=...) để cá nhân hoá thiệp
+   Ví dụ link gửi cho từng khách:
    https://tenmien-cua-ban.com/?ten=Nguyễn%20Văn%20A
-   Cách 2 (mã hóa Base64, URL gọn & không lộ tên trực tiếp):
-   https://tenmien-cua-ban.com/?g=<chuỗi mã hóa>
-   Tạo chuỗi mã hóa: mở Console trình duyệt (F12) tại trang này rồi gõ:
-   encodeGuestName('Nguyễn Văn A')
    ========================================================= */
 function initGuestName() {
   const params = new URLSearchParams(window.location.search);
-
-  // Ưu tiên tham số đã mã hóa Base64 (?g=...)
+    // Ưu tiên tham số đã mã hóa Base64 (?g=...)
   const encoded = params.get('g');
   let rawName = '';
   if (encoded) {
@@ -191,7 +186,6 @@ function initGuestName() {
   if (!rawName) {
     rawName = params.get('ten') || params.get('name') || params.get('to') || params.get('guest') || '';
   }
-
   if (!rawName) return;
 
   const guestName = rawName.trim();
@@ -293,6 +287,30 @@ function initBackToTop() {
 /* =========================================================
    8. NHẠC NỀN — chỉ phát sau khi người dùng tương tác
    ========================================================= */
+// function initMusicToggle() {
+//   const toggle = document.getElementById('musicToggle');
+//   const audio = document.getElementById('bgMusic');
+//   if (!toggle || !audio) return;
+
+//   audio.src = weddingData.music.url;
+//   audio.volume = 0.5;
+//   let isPlaying = false;
+
+//   toggle.addEventListener('click', () => {
+//     if (isPlaying) {
+//       audio.pause();
+//       toggle.classList.remove('is-playing');
+//       toggle.setAttribute('aria-pressed', 'false');
+//     } else {
+//       audio.play().catch(() => {
+//         // Trình duyệt có thể chặn autoplay; bỏ qua lỗi một cách yên lặng
+//       });
+//       toggle.classList.add('is-playing');
+//       toggle.setAttribute('aria-pressed', 'true');
+//     }
+//     isPlaying = !isPlaying;
+//   });
+// }
 function initMusicToggle() {
   const toggle = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
@@ -508,19 +526,25 @@ function renderGalleryFeatured() {
   const container = document.getElementById('galleryFeatured');
   if (!container) return;
 
-  // Tối đa 6 ô đặt tên (a-f) khớp với grid-template-areas trong CSS (mobile & desktop)
-  const slots = ['a', 'b', 'c', 'd', 'e', 'f'];
-
   const featuredPhotos = weddingData.gallery
     .map((photo, index) => ({ ...photo, index }))
     .filter(photo => photo.featured)
-    .slice(0, slots.length);
+    .slice(0, 8);
 
   if (!featuredPhotos.length) return;
 
+  // Độ nghiêng & lệch dọc được định sẵn (không random mỗi lần tải lại) để
+  // bố cục luôn trông "tự nhiên, chồng nhẹ lên nhau" nhưng vẫn nhất quán.
+  const rotations = [-6, 5, -12, 10, -5, 8, -4, 6];
+  const offsetsY = [0, 26, -6, 8, -22, 6, -10, 20];
+
   container.innerHTML = featuredPhotos.map((photo, i) => `
-    <div class="gallery__item" data-index="${photo.index}" data-slot="${slots[i]}" style="--i:${i}">
-      ${buildGalleryItemInnerHTML(photo)}
+    <div class="gallery__item gallery__item--polaroid" data-index="${photo.index}"
+      style="--i:${i}; --rot:${rotations[i % rotations.length]}deg; --ty:${offsetsY[i % offsetsY.length]}px; z-index:${i + 1}">
+      <div class="gallery__photo-frame">
+        <img data-src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.caption || 'Ảnh cưới')}" loading="lazy">
+      </div>
+      ${photo.caption ? `<p class="gallery__caption">${escapeHtml(photo.caption)}</p>` : ''}
     </div>
   `).join('');
 
@@ -879,7 +903,6 @@ function initRsvpForm() {
     const phone = document.getElementById('rsvpPhone').value.trim();
     const attend = form.querySelector('input[name="rsvpAttend"]:checked').value;
     const guests = document.getElementById('rsvpGuests').value;
-    const note = document.getElementById('rsvpNote').value.trim();
 
     if (!name) return;
 
@@ -889,7 +912,6 @@ function initRsvpForm() {
       phone,
       attend,
       guests: Number(guests) || 1,
-      note,
       date: new Date().toISOString()
     };
 
@@ -969,12 +991,6 @@ function initSmoothAnchorScroll() {
    21. HÀM TIỆN ÍCH (UTILITIES)
    ========================================================= */
 
-/* Mã hóa tên khách thành chuỗi Base64 an toàn cho URL (không dấu +, /, =)
-   Dùng để tạo link mời cá nhân hoá gọn & không lộ tên trực tiếp trên URL.
-   Ví dụ: encodeGuestName('Nguyễn Văn A') -> 'Ngdbuy...'
-   Cách tạo link: mở Console trình duyệt (F12) tại trang này và gõ:
-   encodeGuestName('Nguyễn Văn A')
-   rồi dán kết quả vào: https://tenmien-cua-ban.com/?g=KET_QUA */
 function encodeGuestName(name) {
   try {
     const utf8Bytes = new TextEncoder().encode(name);
@@ -1003,7 +1019,6 @@ function decodeGuestName(encoded) {
     return '';
   }
 }
-
 function setText(elementId, value) {
   const el = document.getElementById(elementId);
   if (el) el.textContent = value;
