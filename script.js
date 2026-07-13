@@ -43,7 +43,7 @@ const weddingData = {
       dateShort: '14/11/2026',
       time: '09:00 AM',
       venueName: 'Tư gia Cô Dâu',
-      address: 'Thôn Đông Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
+      address: 'Thôn Kim Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
       mapLinkUrl: 'https://maps.app.goo.gl/gzSH3G2czYDDHQ2q9', // link chỉ đường nhà gái
       iso: '2026-11-14T09:00:00'
     },
@@ -516,19 +516,25 @@ function renderGalleryFeatured() {
   const container = document.getElementById('galleryFeatured');
   if (!container) return;
 
-  // Tối đa 6 ô đặt tên (a-f) khớp với grid-template-areas trong CSS (mobile & desktop)
-  const slots = ['a', 'b', 'c', 'd', 'e', 'f'];
-
   const featuredPhotos = weddingData.gallery
     .map((photo, index) => ({ ...photo, index }))
     .filter(photo => photo.featured)
-    .slice(0, slots.length);
+    .slice(0, 8);
 
   if (!featuredPhotos.length) return;
 
+  // Độ nghiêng & lệch dọc được định sẵn (không random mỗi lần tải lại) để
+  // bố cục luôn trông "tự nhiên, chồng nhẹ lên nhau" nhưng vẫn nhất quán.
+  const rotations = [-6, 5, -12, 10, -5, 8, -4, 6];
+  const offsetsY = [0, 26, -6, 8, -22, 6, -10, 20];
+
   container.innerHTML = featuredPhotos.map((photo, i) => `
-    <div class="gallery__item" data-index="${photo.index}" data-slot="${slots[i]}" style="--i:${i}">
-      ${buildGalleryItemInnerHTML(photo)}
+    <div class="gallery__item gallery__item--polaroid" data-index="${photo.index}"
+      style="--i:${i}; --rot:${rotations[i % rotations.length]}deg; --ty:${offsetsY[i % offsetsY.length]}px; z-index:${i + 1}">
+      <div class="gallery__photo-frame">
+        <img data-src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.caption || 'Ảnh cưới')}" loading="lazy">
+      </div>
+      ${photo.caption ? `<p class="gallery__caption">${escapeHtml(photo.caption)}</p>` : ''}
     </div>
   `).join('');
 
@@ -887,7 +893,6 @@ function initRsvpForm() {
     const phone = document.getElementById('rsvpPhone').value.trim();
     const attend = form.querySelector('input[name="rsvpAttend"]:checked').value;
     const guests = document.getElementById('rsvpGuests').value;
-    const note = document.getElementById('rsvpNote').value.trim();
 
     if (!name) return;
 
@@ -897,7 +902,6 @@ function initRsvpForm() {
       phone,
       attend,
       guests: Number(guests) || 1,
-      note,
       date: new Date().toISOString()
     };
 

@@ -309,11 +309,11 @@
               placeholder="Số người tham dự">
           </div>
 
-          <div class="form-row">
+          <!-- <div class="form-row">
             <label for="rsvpNote" class="sr-only">Lời nhắn</label>
             <textarea id="rsvpNote" name="rsvpNote" rows="2" placeholder="Lời nhắn thêm (không bắt buộc)"
               maxlength="200"></textarea>
-          </div>
+          </div> -->
 
           <button type="submit" class="btn btn--fill">Gửi xác nhận</button>
           <p class="rsvp__status" id="rsvpStatus" role="status"></p>
@@ -354,7 +354,6 @@
       phone: document.getElementById("rsvpPhone").value.trim(),
       attend: document.querySelector('input[name="rsvpAttend"]:checked').value,
       guests: document.getElementById("rsvpGuests").value,
-      note: document.getElementById("rsvpNote").value.trim()
     };
 
     try {
@@ -365,7 +364,6 @@
       formData.append("phone", data.phone);
       formData.append("attend", data.attend);
       formData.append("guests", data.guests);
-      formData.append("note", data.note);
 
       const response = await fetch(SCRIPT_URL, {
         method: "POST",
