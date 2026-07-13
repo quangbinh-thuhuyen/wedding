@@ -16,7 +16,7 @@ const weddingData = {
     name: 'Quang Bình',
     fullName: 'Lê Quang Bình',
     role: 'Chú rể',
-    photo: 'IMG_4965.JPG',
+    photo: 'chure.jpg',
     description: 'Hiện là kỹ sư lập trình tại VNPT Thanh Hóa, là người luôn nghiêm túc và trách nhiệm trong công việc, nhưng cũng rất tình cảm và tinh tế trong cuộc sống. Anh tin rằng một mái ấm hạnh phúc cũng cần được xây dựng cẩn thận như một dòng code tốt - từng chút một, bằng sự thấu hiểu, kiên nhẫn và yêu thương chân thành dành cho người mình chọn để đi cùng suốt quãng đường phía trước',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -27,7 +27,7 @@ const weddingData = {
     name: 'Thu Huyền',
     fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
-    photo: 'IMG_4953.JPG',
+    photo: 'codau.jpg',
     description: 'Hiện đang công tác trong ngành giáo dục mầm non, là người phụ nữ dịu dàng, tận tâm và giàu lòng yêu trẻ. Công việc hằng ngày với những nụ cười hồn nhiên của các em nhỏ đã hun đúc trong cô sự kiên nhẫn, bao dung và một trái tim luôn tràn đầy yêu thương. Cô tin rằng, cũng như việc chăm sóc từng mầm non nhỏ, một tình yêu đẹp cần được vun trồng bằng sự chân thành, thấu hiểu và kiên trì mỗi ngày.',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -60,45 +60,49 @@ const weddingData = {
   },
 
   // ---- Câu chuyện tình yêu (timeline) ----
+  // Ghi chú: `image` có thể để trống ('') nếu mốc đó chưa có ảnh — khi đó
+  // thẻ sẽ tự động hiển thị dạng không ảnh, không bị lỗi bố cục.
   loveStory: [
     {
-      year: '2023',
+      year: '25.10.2023',
       title: 'Lần đầu gặp gỡ',
-      text: 'Chúng tôi tình cờ quen nhau qua một người bạn chung, và ngay từ ánh nhìn đầu tiên đã cảm thấy có điều gì đó rất đặc biệt.'
+      text: 'Chúng tôi tình cờ quen nhau qua một người bạn chung, và ngay từ ánh nhìn đầu tiên đã cảm thấy có điều gì đó rất đặc biệt.',
+      image: 'codau.jpg'
     },
     {
-      year: '2024',
+      year: '16.02.2024',
       title: 'Bắt đầu hẹn hò',
-      text: 'Sau nhiều lần trò chuyện, chúng tôi quyết định cùng nhau đi trên một hành trình - hành trình của những yêu thương giản dị.'
+      text: 'Sau nhiều lần trò chuyện, chúng tôi quyết định cùng nhau đi trên một hành trình - hành trình của những yêu thương giản dị.',
+      image: 'codau.jpg'
     },
     {
-      year: '2026',
+      year: '25.06.2026',
+      title: 'Lễ Dạm Ngõ',
+      text: 'Hai gia đình chính thức gặp gỡ, trò chuyện thân mật để bàn chuyện trăm năm cho đôi trẻ - một cột mốc quan trọng mở đường cho ngày trọng đại sắp tới.',
+      image: 'codau.jpg'
+    },
+    {
+      year: '12.07.2026',
       title: 'Lời cầu hôn',
-      text: 'Trong một buổi hoàng hôn dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.'
-    },
-    {
-      year: '14.11.2026',
-      title: 'Lễ Nạp Tài',
-      text: 'Trong một buổi hoàng hôn dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.'
-    },
-    {
-      year: '16.11.2026',
-      title: 'Ngày chúng tôi nên duyên',
-      text: 'Và giờ đây, chúng tôi chuẩn bị viết tiếp câu chuyện tình yêu này cùng nhau, mãi mãi, với sự chứng kiến của gia đình và bạn bè.'
+      text: 'Trong một buổi tối dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.',
+      image: 'codau.jpg'
     }
   ],
 
   // ---- Album ảnh cưới ----
+  // Ghi chú: `featured: true` để ảnh đó xuất hiện ở khối "Nổi bật" (bento) phía trên.
+  // Album cuộn ngang bên dưới vẫn hiển thị TẤT CẢ ảnh trong mảng này, không phụ thuộc featured.
   gallery: [
-    { url: 'IMG_7874.JPG', caption: 'Lễ dạm ngõ' },
-    { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau' },
+    { url: 'IMG_7874.jpg', caption: 'Lễ dạm ngõ', featured: true },
+    { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau', featured: true },
     { url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop', caption: 'Nắm tay nhau' },
-    { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành' },
-    { url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop', caption: 'Nụ cười hạnh phúc' },
+    { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành', featured: true },
+    { url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop', caption: 'Nụ cười hạnh phúc', featured: true },
     { url: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800&auto=format&fit=crop', caption: 'Yêu thương' },
-    { url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop', caption: 'Ngày đặc biệt' },
-    { url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', caption: 'Trọn đời bên nhau' }
+    { url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop', caption: 'Ngày đặc biệt', featured: true },
+    { url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', caption: 'Trọn đời bên nhau', featured: true }
   ],
+
 
   // ---- Thông tin mừng cưới / QR chuyển khoản ----
   gift: [
@@ -119,7 +123,7 @@ const weddingData = {
   // ---- Nhạc nền ----
   music: {
     // Thay bằng đường dẫn file nhạc thực tế của bạn (mp3)
-    url: 'https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8a73a5b26.mp3?filename=wedding-day-107898.mp3',
+    url: 'ta_la_cua_nhau.mp3',
     autoPlayLabel: 'Nhạc nền sẽ phát sau khi bạn tương tác với trang'
   },
 
@@ -152,7 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   renderCoupleInfo();
   renderTimeline();
-  renderGallery();
+  renderGalleryFeatured();
+  renderGalleryReel();
   initLightbox();
   renderEventInfo();
   renderGiftSection();
@@ -309,8 +314,9 @@ function initFallingLeaves() {
     return;
   }
 
-  const leafIcons = ['🍃', '🌿'];
-  const leafCount = 18;
+  // const leafIcons = ['🍃', '🌿'];
+  const leafIcons = ['💗'];
+  const leafCount = 15;
   const fragment = document.createDocumentFragment();
 
   for (let index = 0; index < leafCount; index += 1) {
@@ -438,32 +444,79 @@ function renderTimeline() {
   container.innerHTML = weddingData.loveStory.map(item => `
     <div class="timeline__item">
       <span class="timeline__dot"></span>
-      <div class="timeline__card">
+      <div class="timeline__card ${item.image ? 'timeline__card--has-image' : ''}">
+        ${item.image ? `
+        <div class="timeline__image-wrap">
+          <img class="timeline__image" data-src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">
+        </div>` : ''}
         <p class="timeline__year">${escapeHtml(item.year)}</p>
         <h3 class="timeline__title">${escapeHtml(item.title)}</h3>
-        <p class="timeline__text">${escapeHtml(item.text)}</p>
+        ${item.text ? `<p class="timeline__text">${escapeHtml(item.text)}</p>` : ''}
       </div>
     </div>
   `).join('');
+
+  // Lazy-load ảnh trong timeline giống cách gallery đang dùng
+  lazyLoadImages(container);
 }
 
 /* =========================================================
    13. GALLERY — render ảnh + lazy loading
    ========================================================= */
-function renderGallery() {
-  const container = document.getElementById('galleryGrid');
+function renderGalleryFeatured() {
+  const container = document.getElementById('galleryFeatured');
   if (!container) return;
 
-  container.innerHTML = weddingData.gallery.map((photo, index) => `
-    <div class="gallery__item" data-index="${index}">
-      <img data-src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.caption || 'Ảnh cưới')}" loading="lazy">
+  // Tối đa 6 ô đặt tên (a-f) khớp với grid-template-areas trong CSS (mobile & desktop)
+  const slots = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+  const featuredPhotos = weddingData.gallery
+    .map((photo, index) => ({ ...photo, index }))
+    .filter(photo => photo.featured)
+    .slice(0, slots.length);
+
+  if (!featuredPhotos.length) return;
+
+  container.innerHTML = featuredPhotos.map((photo, i) => `
+    <div class="gallery__item" data-index="${photo.index}" data-slot="${slots[i]}" style="--i:${i}">
+      ${buildGalleryItemInnerHTML(photo)}
     </div>
   `).join('');
 
-  // Lazy loading bằng IntersectionObserver cho tất cả ảnh có data-src
-  lazyLoadImages();
+  observeGalleryReveal(container);
+}
 
-  // Reveal animation riêng cho từng ảnh khi cuộn tới
+/* Album cuộn ngang — hiển thị TOÀN BỘ ảnh, hoạt động trên cả mobile lẫn desktop */
+function renderGalleryReel() {
+  const container = document.getElementById('galleryGrid');
+  if (!container) return;
+
+  container.classList.add('gallery__grid--reel');
+
+  container.innerHTML = weddingData.gallery.map((photo, index) => `
+    <div class="gallery__item gallery__item--reel" data-index="${index}" style="--i:${index}">
+      ${buildGalleryItemInnerHTML(photo)}
+    </div>
+  `).join('');
+
+  observeGalleryReveal(container);
+  initGalleryScrollHint(container);
+}
+
+/* HTML dùng chung cho một ô ảnh (ảnh + overlay + caption + icon phóng to) */
+function buildGalleryItemInnerHTML(photo) {
+  return `
+    <img data-src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.caption || 'Ảnh cưới')}" loading="lazy">
+    <div class="gallery__overlay" aria-hidden="true"></div>
+    ${photo.caption ? `<p class="gallery__caption">${escapeHtml(photo.caption)}</p>` : ''}
+    <span class="gallery__zoom" aria-hidden="true">🔍</span>
+  `;
+}
+
+/* Lazy-load ảnh trong container vừa render + hiệu ứng reveal so le khi cuộn tới */
+function observeGalleryReveal(container) {
+  lazyLoadImages(container);
+
   const items = container.querySelectorAll('.gallery__item');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -472,20 +525,36 @@ function renderGallery() {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2 });
   items.forEach(item => revealObserver.observe(item));
 }
 
-/* Lazy loading dùng chung cho mọi ảnh có thuộc tính data-src */
-function lazyLoadImages() {
-  const images = document.querySelectorAll('img[data-src]');
+/* Gợi ý vuốt ngang: ẩn dần chỉ báo sau khi người dùng đã cuộn */
+function initGalleryScrollHint(container) {
+  const wrapper = container.closest('.gallery__scroller') || container;
+  let hasScrolled = false;
+  wrapper.addEventListener('scroll', () => {
+    if (hasScrolled) return;
+    hasScrolled = true;
+    wrapper.classList.add('has-scrolled');
+  }, { passive: true, once: true });
+}
+
+/* Lazy loading dùng chung cho mọi ảnh có thuộc tính data-src.
+   Truyền `root` để chỉ quét trong 1 khối cụ thể — tránh trường hợp 2 khối
+   (Nổi bật + Reel) cùng tạo observer theo dõi trùng một ảnh, gây lỗi src="null"
+   khi observer thứ 2 đọc data-src đã bị observer thứ 1 xoá mất. */
+function lazyLoadImages(root) {
+  const scope = root || document;
+  const images = scope.querySelectorAll('img[data-src]');
   if (!images.length) return;
 
   const imgObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        img.src = img.getAttribute('data-src');
+        const src = img.getAttribute('data-src');
+        if (src) img.src = src;
         img.removeAttribute('data-src');
         observer.unobserve(img);
       }
@@ -498,7 +567,7 @@ function lazyLoadImages() {
 function setLazyImage(elementId, url) {
   const el = document.getElementById(elementId);
   if (!el) return;
-  el.setAttribute('data-src', url);
+  el.setAttribute('src', url);
 }
 
 /* =========================================================
@@ -510,8 +579,12 @@ function initLightbox() {
   const closeBtn = document.getElementById('lightboxClose');
   const prevBtn = document.getElementById('lightboxPrev');
   const nextBtn = document.getElementById('lightboxNext');
-  const galleryGrid = document.getElementById('galleryGrid');
-  if (!lightbox || !galleryGrid) return;
+  // Ảnh có thể được bấm từ khối "Nổi bật" (bento) hoặc khối cuộn ngang (reel)
+  const galleryContainers = [
+    document.getElementById('galleryFeatured'),
+    document.getElementById('galleryGrid')
+  ].filter(Boolean);
+  if (!lightbox || !galleryContainers.length) return;
 
   let currentIndex = 0;
   const photos = weddingData.gallery;
@@ -537,10 +610,12 @@ function initLightbox() {
     lightboxImg.alt = photos[currentIndex].caption || '';
   }
 
-  galleryGrid.addEventListener('click', (e) => {
-    const item = e.target.closest('.gallery__item');
-    if (!item) return;
-    openLightbox(Number(item.dataset.index));
+  galleryContainers.forEach(container => {
+    container.addEventListener('click', (e) => {
+      const item = e.target.closest('.gallery__item');
+      if (!item) return;
+      openLightbox(Number(item.dataset.index));
+    });
   });
 
   closeBtn.addEventListener('click', closeLightbox);

@@ -26,7 +26,7 @@
   <!-- ============ LOADING SCREEN ============ -->
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__content">
-      <span class="loader__leaf">❤️</span>
+      <span class="loader__leaf">💞</span>
       <p class="loader__names">Quang Bình <span>&amp;</span> Thu Huyền</p>
       <div class="loader__bar"><span></span></div>
     </div>
@@ -172,7 +172,14 @@
       <div class="container">
         <p class="section-eyebrow reveal">Khoảnh khắc</p>
         <h2 class="section-title reveal">Album Ảnh Cưới</h2>
-        <div class="gallery__grid" id="galleryGrid"><!-- render bằng JS --></div>
+
+        <div class="gallery__featured" id="galleryFeatured"><!-- render bằng JS --></div>
+
+        <p class="gallery__reel-label reveal">Xem thêm khoảnh khắc</p>
+        <div class="gallery__scroller">
+          <div class="gallery__grid" id="galleryGrid"><!-- render bằng JS --></div>
+        </div>
+        <p class="gallery__hint reveal" aria-hidden="true"><span>👉</span> Vuốt để xem thêm khoảnh khắc</p>
       </div>
     </section>
 
