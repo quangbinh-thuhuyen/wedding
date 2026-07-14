@@ -7,6 +7,24 @@
   <title>Quang Bình &amp; Thu Huyền | Save The Date</title>
   <meta name="description" content="Thiệp cưới online của Quang Bình &amp; Thu Huyền - 16.11.2026">
 
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quang Bình &amp; Thu Huyền Wedding">
+  <meta property="og:title" content="Quang Bình &amp; Thu Huyền | Save The Date 16.11.2026">
+  <meta property="og:description"
+    content="Trân trọng kính mời bạn đến chung vui trong ngày cưới của Quang Bình &amp; Thu Huyền - 16.11.2026">
+  <meta property="og:image" content="https://quangbinh-thuhuyen.github.io/wedding/thumbnail.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://quangbinh-thuhuyen.github.io/wedding/">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card (một số app dùng chung chuẩn này) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quang Bình &amp; Thu Huyền | Save The Date 16.11.2026">
+  <meta name="twitter:description"
+    content="Trân trọng kính mời bạn đến chung vui trong ngày cưới của Quang Bình &amp; Thu Huyền - 16.11.2026">
+  <meta name="twitter:image" content="https://quangbinh-thuhuyen.github.io/wedding/thumbnail.jpg">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -243,7 +261,8 @@
 
       <div class="guestbook__list guestbook__floating" id="guestbookList" aria-live="polite"></div>
 
-      <button type="button" class="guestbook-quick-input" id="guestbookQuickInput" aria-haspopup="dialog" aria-controls="guestbookModal">
+      <button type="button" class="guestbook-quick-input" id="guestbookQuickInput" aria-haspopup="dialog"
+        aria-controls="guestbookModal">
         <span class="guestbook-quick-input__text">Gửi lời chúc...</span>
         <span class="guestbook-quick-input__icon" aria-hidden="true">💬</span>
       </button>
@@ -550,70 +569,70 @@
 
   });
   async function loadGuestbook() {
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzha6aA9_6mbRSqUcLR26LJtMQgKVI1UNi8QC27twUQ8aZtVDUJ3pjF5Oa-5g-3DRl/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzha6aA9_6mbRSqUcLR26LJtMQgKVI1UNi8QC27twUQ8aZtVDUJ3pjF5Oa-5g-3DRl/exec";
     try {
 
-        const response = await fetch(`${SCRIPT_URL}?action=guestbook`);
-        const data = await response.json();
+      const response = await fetch(`${SCRIPT_URL}?action=guestbook`);
+      const data = await response.json();
 
-        const list = document.getElementById('guestbookList');
-        if (!list) return;
+      const list = document.getElementById('guestbookList');
+      if (!list) return;
 
-        list.classList.add('guestbook__floating');
+      list.classList.add('guestbook__floating');
 
-        if (!data.length) {
-          list.innerHTML = '<p class="guestbook__empty">Hãy là người đầu tiên gửi lời chúc phúc đến đôi uyên ương 💚</p>';
-          return;
-        }
+      if (!data.length) {
+        list.innerHTML = '<p class="guestbook__empty">Hãy là người đầu tiên gửi lời chúc phúc đến đôi uyên ương 💚</p>';
+        return;
+      }
 
-        const tickerItems = data.map(entry => `
+      const tickerItems = data.map(entry => `
           <article class="guestbook__entry">
             <p class="guestbook__entry-name">${escapeHtml(entry.name)}: <span class="guestbook__entry-msg">${escapeHtml(entry.message)}</span></p>
           </article>
         `).join('');
 
-        list.innerHTML = `<div class="guestbook__floating-track">${tickerItems}</div>`;
-        startGuestbookTicker(list);
+      list.innerHTML = `<div class="guestbook__floating-track">${tickerItems}</div>`;
+      startGuestbookTicker(list);
 
     } catch (err) {
 
-        console.error(err);
+      console.error(err);
 
     }
 
-}
-
-// Tự động tải khi mở trang
-loadGuestbook();
-
-// ============ TOGGLE ẨN/HIỆN Ô LỜI CHÚC + DANH SÁCH LỜI CHÚC ============
-const guestbookToggle = document.getElementById("guestbookToggle");
-const guestbookToggleIcon = document.getElementById("guestbookToggleIcon");
-const guestbookListEl = document.getElementById("guestbookList");
-let guestbookWidgetVisible = true;
-
-function setGuestbookWidgetVisibility(visible) {
-  guestbookWidgetVisible = visible;
-
-  if (guestbookListEl) {
-    guestbookListEl.classList.toggle("is-widget-hidden", !visible);
   }
-  if (guestbookQuickInput) {
-    guestbookQuickInput.classList.toggle("is-widget-hidden", !visible);
+
+  // Tự động tải khi mở trang
+  loadGuestbook();
+
+  // ============ TOGGLE ẨN/HIỆN Ô LỜI CHÚC + DANH SÁCH LỜI CHÚC ============
+  const guestbookToggle = document.getElementById("guestbookToggle");
+  const guestbookToggleIcon = document.getElementById("guestbookToggleIcon");
+  const guestbookListEl = document.getElementById("guestbookList");
+  let guestbookWidgetVisible = true;
+
+  function setGuestbookWidgetVisibility(visible) {
+    guestbookWidgetVisible = visible;
+
+    if (guestbookListEl) {
+      guestbookListEl.classList.toggle("is-widget-hidden", !visible);
+    }
+    if (guestbookQuickInput) {
+      guestbookQuickInput.classList.toggle("is-widget-hidden", !visible);
+    }
+    if (guestbookToggleIcon) {
+      guestbookToggleIcon.textContent = visible ? "✕" : "☰";
+    }
+    if (guestbookToggle) {
+      guestbookToggle.setAttribute("aria-label", visible ? "Ẩn lời chúc" : "Hiện lời chúc");
+    }
   }
-  if (guestbookToggleIcon) {
-    guestbookToggleIcon.textContent = visible ? "✕" : "☰";
-  }
+
   if (guestbookToggle) {
-    guestbookToggle.setAttribute("aria-label", visible ? "Ẩn lời chúc" : "Hiện lời chúc");
+    guestbookToggle.addEventListener("click", () => {
+      setGuestbookWidgetVisibility(!guestbookWidgetVisible);
+    });
   }
-}
-
-if (guestbookToggle) {
-  guestbookToggle.addEventListener("click", () => {
-    setGuestbookWidgetVisibility(!guestbookWidgetVisible);
-  });
-}
 </script>
 
 </html>
