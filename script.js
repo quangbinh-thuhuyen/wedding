@@ -41,7 +41,7 @@ const weddingData = {
       label: 'Lễ Nạp Tài',
       icon: '🎁',
       dateShort: '14/11/2026',
-      time: '09:00 AM',
+      time: '14:30 PM',
       venueName: 'Tư gia Cô Dâu',
       address: 'Thôn Kim Thành, xã Hồ Vương, tỉnh Thanh Hóa', // địa chỉ nhà gái — sửa nếu khác
       mapLinkUrl: 'https://maps.app.goo.gl/gzSH3G2czYDDHQ2q9', // link chỉ đường nhà gái
@@ -218,7 +218,7 @@ const guestList = {
   'q6h': 'gđ cháu Đức',
   'n3b': 'bạn Tuân',
   'r9c': 'gđ bạn Linh',
-  'y2f': 'bạn Hiền',
+  'y2f': 'gđ bạn Hiền',
   'l7d': 'gđ bạn Minh',
   'g5n': 'gđ bạn Bích',
   'x8t': 'gđ bạn Đình Linh',
