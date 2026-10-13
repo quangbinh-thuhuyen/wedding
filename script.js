@@ -16,7 +16,7 @@ const weddingData = {
     name: 'Quang Bình',
     fullName: 'Lê Quang Bình',
     role: 'Chú rể',
-    photo: 'chure.jpg',
+    photo: 'img/333A8362.jpg',
     description: 'Hiện là kỹ sư lập trình tại VNPT Thanh Hóa, là người luôn nghiêm túc và trách nhiệm trong công việc, nhưng cũng rất tình cảm và tinh tế trong cuộc sống. Anh tin rằng một mái ấm hạnh phúc cũng cần được xây dựng cẩn thận như một dòng code tốt - từng chút một, bằng sự thấu hiểu, kiên nhẫn và yêu thương chân thành dành cho người mình chọn để đi cùng suốt quãng đường phía trước',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -27,7 +27,7 @@ const weddingData = {
     name: 'Thu Huyền',
     fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
-    photo: 'codau.jpg',
+    photo: 'img/333A8389.jpg',
     description: 'Hiện đang công tác trong ngành giáo dục mầm non, là người phụ nữ dịu dàng, tận tâm và giàu lòng yêu trẻ. Công việc hằng ngày với những nụ cười hồn nhiên của các em nhỏ đã hun đúc trong cô sự kiên nhẫn, bao dung và một trái tim luôn tràn đầy yêu thương. Cô tin rằng, cũng như việc chăm sóc từng mầm non nhỏ, một tình yêu đẹp cần được vun trồng bằng sự chân thành, thấu hiểu và kiên trì mỗi ngày.',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -79,7 +79,7 @@ const weddingData = {
       year: '25.06.2026',
       title: 'Lễ Dạm Ngõ',
       text: 'Hai gia đình chính thức gặp gỡ, trò chuyện thân mật để bàn chuyện trăm năm cho đôi trẻ - một cột mốc quan trọng mở đường cho ngày trọng đại sắp tới.',
-      image: 'codau.jpg'
+      image: 'img/333A8362.jpg'
     },
     {
       year: '12.07.2026',
@@ -93,14 +93,23 @@ const weddingData = {
   // Ghi chú: `featured: true` để ảnh đó xuất hiện ở khối "Nổi bật" (bento) phía trên.
   // Album cuộn ngang bên dưới vẫn hiển thị TẤT CẢ ảnh trong mảng này, không phụ thuộc featured.
   gallery: [
-    { url: 'IMG_7874.JPG', caption: 'Lễ dạm ngõ', featured: true },
-    { url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop', caption: 'Bên nhau', featured: true },
-    { url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=800&auto=format&fit=crop', caption: 'Nắm tay nhau' },
-    { url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop', caption: 'Chân thành', featured: true },
-    { url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop', caption: 'Nụ cười hạnh phúc', featured: true },
-    { url: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800&auto=format&fit=crop', caption: 'Yêu thương' },
-    { url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop', caption: 'Ngày đặc biệt', featured: true },
-    { url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', caption: 'Trọn đời bên nhau', featured: true }
+    { url: 'img/333A8227.jpg', featured: true },
+    { url: 'img/333A8704.jpg', featured: true },
+    { url: 'img/333A8526.jpg' },
+    { url: 'img/333A8691.jpg', featured: true },
+    { url: 'img/333A8484.jpg', featured: true },
+    { url: 'img/333A8926.jpg', featured: true },
+    { url: 'img/333A8351.jpg', featured: true },
+    { url: 'img/333A8487.jpg'},
+    { url: 'img/333A8843.jpg'},
+    { url: 'img/333A8454.jpg'},
+    { url: 'img/333A8293.jpg'},
+    { url: 'img/333A8239.jpg'},
+    { url: 'img/333A8302.jpg'},
+    { url: 'img/333A8498.jpg'},
+    { url: 'img/333A9055.jpg'},
+    { url: 'img/333A8898.jpg'},
+    { url: 'img/333A8309.jpg'},
   ],
 
 
