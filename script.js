@@ -16,7 +16,7 @@ const weddingData = {
     name: 'Quang Bình',
     fullName: 'Lê Quang Bình',
     role: 'Chú rể',
-    photo: 'img/333A8362.jpg',
+    photo: 'img/333A8362.JPG',
     description: 'Hiện là kỹ sư lập trình tại VNPT Thanh Hóa, là người luôn nghiêm túc và trách nhiệm trong công việc, nhưng cũng rất tình cảm và tinh tế trong cuộc sống. Anh tin rằng một mái ấm hạnh phúc cũng cần được xây dựng cẩn thận như một dòng code tốt - từng chút một, bằng sự thấu hiểu, kiên nhẫn và yêu thương chân thành dành cho người mình chọn để đi cùng suốt quãng đường phía trước',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -27,7 +27,7 @@ const weddingData = {
     name: 'Thu Huyền',
     fullName: 'Nguyễn Thị Thu Huyền',
     role: 'Cô dâu',
-    photo: 'img/333A8389.jpg',
+    photo: 'img/333A8389.JPG',
     description: 'Hiện đang công tác trong ngành giáo dục mầm non, là người phụ nữ dịu dàng, tận tâm và giàu lòng yêu trẻ. Công việc hằng ngày với những nụ cười hồn nhiên của các em nhỏ đã hun đúc trong cô sự kiên nhẫn, bao dung và một trái tim luôn tràn đầy yêu thương. Cô tin rằng, cũng như việc chăm sóc từng mầm non nhỏ, một tình yêu đẹp cần được vun trồng bằng sự chân thành, thấu hiểu và kiên trì mỗi ngày.',
     social: [
       // { icon: '📘', url: 'https://facebook.com/...' }
@@ -67,25 +67,25 @@ const weddingData = {
       year: '25.10.2023',
       title: 'Lần đầu gặp gỡ',
       text: 'Chúng tôi tình cờ quen nhau qua một người bạn chung, và ngay từ ánh nhìn đầu tiên đã cảm thấy có điều gì đó rất đặc biệt.',
-      image: 'codau.jpg'
+      image: 'codau.JPG'
     },
     {
       year: '16.02.2024',
       title: 'Bắt đầu hẹn hò',
       text: 'Sau nhiều lần trò chuyện, chúng tôi quyết định cùng nhau đi trên một hành trình - hành trình của những yêu thương giản dị.',
-      image: 'codau.jpg'
+      image: 'codau.JPG'
     },
     {
       year: '25.06.2026',
       title: 'Lễ Dạm Ngõ',
       text: 'Hai gia đình chính thức gặp gỡ, trò chuyện thân mật để bàn chuyện trăm năm cho đôi trẻ - một cột mốc quan trọng mở đường cho ngày trọng đại sắp tới.',
-      image: 'img/333A8362.jpg'
+      image: 'img/333A8362.JPG'
     },
     {
       year: '12.07.2026',
       title: 'Lời cầu hôn',
       text: 'Trong một buổi tối dịu dàng, một lời cầu hôn chân thành đã mở ra một chương mới cho câu chuyện của chúng tôi.',
-      image: 'codau.jpg'
+      image: 'codau.JPG'
     }
   ],
 
@@ -93,23 +93,23 @@ const weddingData = {
   // Ghi chú: `featured: true` để ảnh đó xuất hiện ở khối "Nổi bật" (bento) phía trên.
   // Album cuộn ngang bên dưới vẫn hiển thị TẤT CẢ ảnh trong mảng này, không phụ thuộc featured.
   gallery: [
-    { url: 'img/333A8227.jpg', featured: true },
-    { url: 'img/333A8704.jpg', featured: true },
-    { url: 'img/333A8526.jpg' },
-    { url: 'img/333A8691.jpg', featured: true },
-    { url: 'img/333A8484.jpg', featured: true },
-    { url: 'img/333A8926.jpg', featured: true },
-    { url: 'img/333A8351.jpg', featured: true },
-    { url: 'img/333A8487.jpg'},
-    { url: 'img/333A8843.jpg'},
-    { url: 'img/333A8454.jpg'},
-    { url: 'img/333A8293.jpg'},
-    { url: 'img/333A8239.jpg'},
-    { url: 'img/333A8302.jpg'},
-    { url: 'img/333A8498.jpg'},
-    { url: 'img/333A9055.jpg'},
-    { url: 'img/333A8898.jpg'},
-    { url: 'img/333A8309.jpg'},
+    { url: 'img/333A8227.JPG', featured: true },
+    { url: 'img/333A8704.JPG', featured: true },
+    { url: 'img/333A8526.JPG' },
+    { url: 'img/333A8691.JPG', featured: true },
+    { url: 'img/333A8484.JPG', featured: true },
+    { url: 'img/333A8926.JPG', featured: true },
+    { url: 'img/333A8351.JPG', featured: true },
+    { url: 'img/333A8487.JPG'},
+    { url: 'img/333A8843.JPG'},
+    { url: 'img/333A8454.JPG'},
+    { url: 'img/333A8293.JPG'},
+    { url: 'img/333A8239.JPG'},
+    { url: 'img/333A8302.JPG'},
+    { url: 'img/333A8498.JPG'},
+    { url: 'img/333A9055.JPG'},
+    { url: 'img/333A8898.JPG'},
+    { url: 'img/333A8309.JPG'},
   ],
 
 
